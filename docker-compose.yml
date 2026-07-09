@@ -1,0 +1,16 @@
+services:
+  snip:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      SNIP_BASE_URL: "http://localhost:8000"
+      SNIP_DATABASE_URL: "sqlite:////data/snip.db"
+      SNIP_RATE_LIMIT_PER_SECOND: "5"
+      SNIP_RATE_LIMIT_BURST: "10"
+    volumes:
+      - snip-data:/data
+    restart: unless-stopped
+
+volumes:
+  snip-data:
