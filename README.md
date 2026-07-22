@@ -49,7 +49,7 @@ Redirects return `404` for unknown codes and `410` once a link's TTL has passed.
 curl -s -X POST localhost:8000/api/shorten \
   -H 'content-type: application/json' \
   -d '{"url": "https://example.com/some/really/long/link", "ttl_days": 30}'
-# -> {"code":"3 Kf9Qa","short_url":"http://localhost:8000/3kf9Qa"}
+# -> {"code":"3kf9Qa","short_url":"http://localhost:8000/3kf9Qa"}
 
 # follow the redirect (note the 307 + Location header)
 curl -sI localhost:8000/3kf9Qa
